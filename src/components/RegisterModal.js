@@ -16,9 +16,8 @@ const RegisterModal = () => {
                     <input style={styles.input} type='email' placeholder='Email' />
                     <input style={styles.input} type='password' placeholder='Password' />
                     <input style={styles.input} type='number' placeholder='Age' />
-                    <Button backgroundColor='#FF3333' route='/' type='Submit' text='Continue' />
+                    <Button backgroundColor='#FF3333' route='/Dashboard' type='Submit' text='Continue' />
                 </form>
-                {/* Fix the spacing here */}
                 <p style={{fontWeight: 'bold', padding: '10px'}}>OR</p>
                 <div style={styles.social}>
                     <MediaButton backgroundColor='#3366ff' src='../images/lovast_logo.png' text='Continue With Facebook' />
