@@ -1,7 +1,6 @@
 # Wintrest
 Wintrest
 
-
 # Build a Pintrest App
 
 ### https://www.pinterest.com/	

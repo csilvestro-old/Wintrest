@@ -1,0 +1,31 @@
+.modal{
+    background:white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    padding: 1rem;
+    align-items: center;
+    border-radius: 5px;
+    width: 20%;
+}
+
+.btn{
+    width: 95%;
+    margin: 5px;
+    padding: 5px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: none;
+    font-weight: 700;
+    font-size: 1em;
+
+    /* width:'95%',
+    margin:'5px',
+    padding:'5px',
+    textTransform:'uppercase',
+    borderRadius:'2px',
+    border:'none',
+    fontSize:'700', */
+}
