@@ -11,7 +11,9 @@ class Dashboard extends Component{
         return(
             <div style={styles.container}>
                 <DashHeader />
-                {items}
+                <div style={styles.itemsContainer}>
+                    {items}
+                </div>
             </div>
         )
     }
@@ -24,5 +26,9 @@ const styles ={
         display:'flex',
         flexDirection:'column',
         height:'100vh',
+    },
+    itemsContainer:{
+        display:'flex',
+        flexDirection:'row'
     }
 }

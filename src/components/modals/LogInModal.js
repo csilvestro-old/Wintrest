@@ -26,7 +26,7 @@ class LogInModal extends Component{
                     <Button logIn={this.setRedirect} styles={styles.logIn}label="Log In"></Button>
                     <Button logIn={this.setRegister} styles={styles.register}label="Register"></Button>
                     {/* No href's use Link */}
-                    <a href="">Create a buisness account</a>
+                    <a href="google.com">Create a buisness account</a>
                 </div>
             </>
         )
