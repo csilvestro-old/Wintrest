@@ -1,18 +1,61 @@
 import React, { Component } from 'react';
 import DashHeader from '../../components/DashHeader';
-import Data from '../../jsons/Items.json';
+// import Data from '../../jsons/Items.json';
 import Item from '../../components/item/Item';
 
 class Dashboard extends Component{
-    render(){
-        let items = Data.map((dataDetail,index)=>{
-            return <Item title={dataDetail.title} src={dataDetail.src} alt={dataDetail.alt} desc={dataDetail.desc}/>
+    state={
+        items:[],
+        isLoaded:false,
+    }
+
+    componentDidMount(){
+        const isLoaded=this.state.isLoaded;
+        if(isLoaded){
+            this.fetchData();
+            //shut up chase
+        }else{
+            console.log("Chase is an error");
+        }
+    }
+    fetchData(){
+        this.setState({
+            isLoaded:true,
+            items:[]
         })
+        fetch('https://randomuser.me/api/')
+            .then(res=>res.json())
+            .then(data=>data.res.map(user=>({
+                fname:`${user.name.first} ${user.name.last}`,
+                lname:`${user.name.last}`,
+                gender:`${user.gender}`,
+                email:`${user.email}`,
+                age:`${user.dob.age}`,
+                dob:`${user.dob.date}`,
+                username:`${user.login.username}`,
+                picture:`${user.picture.large}`,
+            })))
+            .then(items=>this.setState({
+                items,
+                isLoaded:false,
+            }))
+            .catch(err=>console.log("Did not load ",err))
+    }
+    
+    render(){
+        // let items = Data.map((dataDetail,index)=>{
+        //     return <Item title={dataDetail.title} src={dataDetail.src} alt={dataDetail.alt} desc={dataDetail.desc}/>
+        // })
+        const {isLoaded,items} = this.state;
         return(
             <div style={styles.container}>
                 <DashHeader />
                 <div style={styles.itemsContainer}>
-                    {items}
+                    {!isLoaded && items.length>0 ? items.map(item =>{
+                        const {fname,lname,username,picture} = item;
+                        return <Item key={username} title={fname}  />
+                    }):null}
+                    {/*{items}*/} 
                 </div>
             </div>
         )

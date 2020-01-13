@@ -2,7 +2,7 @@ import React from 'react';
 
 const Item =props=>{
     return(
-        <div style={styles.container}>
+        <div key={props.id} style={styles.container}>
             <h2>{props.title}</h2>
             <img width="200px" src={props.src} alt={props.alt}/>
             <p>{props.desc}</p>
