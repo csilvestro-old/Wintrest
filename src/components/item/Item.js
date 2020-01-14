@@ -4,7 +4,7 @@ const Item =props=>{
     return(
         <div key={props.id} style={styles.container}>
             <img style={styles.image} width="200px" src={props.src} alt={props.alt}/>
-            <h2>{props.title}</h2>
+            <h2 style={styles.text}>{props.title}</h2>
         </div>
     )
 }
@@ -16,11 +16,15 @@ const styles={
         borderRadius:'10px',
         textAlign:'center',
         margin:'1rem',
-        fontSize:'1em'
+        fontSize:'1em',
+        display:'flex'
     },
     image:{
         borderRadius:'20px',
         height:'15rem',
         width:'15rem'
+    },
+    text:{
+        display:'block'
     }
 }
