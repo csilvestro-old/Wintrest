@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import DashHeader from '../../components/DashHeader';
 // import Data from '../../jsons/Items.json';
 import Item from '../../components/item/Item';
-
+import './Dashboard.css'
 class Dashboard extends Component{
     state={
         items:[],
         isLoaded:true,
     }
-
     componentDidMount(){
         const isLoaded=this.state.isLoaded;
         if(isLoaded){
@@ -23,7 +22,7 @@ class Dashboard extends Component{
             isLoaded:true,
             items:[]
         })
-        fetch('https://randomuser.me/api/')
+        fetch('https://randomuser.me/api/?results=50')
             .then(res=>res.json())
             .then(data=>data.results.map(user=>({
                 fname:`${user.name.first} ${user.name.last}`,
@@ -50,9 +49,9 @@ class Dashboard extends Component{
         return(
             <div style={styles.container}>
                 <DashHeader />
-                <div style={styles.itemsContainer}>
+                <div style={styles.itemsContainer} className="itemsContainer">
                     {!isLoaded && items.length>0 ? items.map(item =>{
-                        const {fname,lname,username,picture} = item;
+                        const {fname,username,picture} = item;
                         return <Item key={username} title={fname} src={picture}  />
                     }):null}
                     {/*{items}*/} 
@@ -69,9 +68,5 @@ const styles ={
         display:'flex',
         flexDirection:'column',
         height:'100vh',
-    },
-    itemsContainer:{
-        display:'flex',
-        flexDirection:'row'
     }
 }
