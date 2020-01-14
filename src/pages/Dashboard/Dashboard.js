@@ -6,7 +6,7 @@ import Item from '../../components/item/Item';
 class Dashboard extends Component{
     state={
         items:[],
-        isLoaded:false,
+        isLoaded:true,
     }
 
     componentDidMount(){
@@ -25,7 +25,7 @@ class Dashboard extends Component{
         })
         fetch('https://randomuser.me/api/')
             .then(res=>res.json())
-            .then(data=>data.res.map(user=>({
+            .then(data=>data.results.map(user=>({
                 fname:`${user.name.first} ${user.name.last}`,
                 lname:`${user.name.last}`,
                 gender:`${user.gender}`,
@@ -53,7 +53,7 @@ class Dashboard extends Component{
                 <div style={styles.itemsContainer}>
                     {!isLoaded && items.length>0 ? items.map(item =>{
                         const {fname,lname,username,picture} = item;
-                        return <Item key={username} title={fname}  />
+                        return <Item key={username} title={fname} src={picture}  />
                     }):null}
                     {/*{items}*/} 
                 </div>
