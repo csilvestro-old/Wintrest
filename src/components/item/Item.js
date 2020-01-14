@@ -15,9 +15,8 @@ const styles={
         width:'15%',
         borderRadius:'10px',
         textAlign:'center',
-        margin:'1rem',
         fontSize:'1em',
-        display:'flex'
+        marginBottom:'1rem'
     },
     image:{
         borderRadius:'20px',

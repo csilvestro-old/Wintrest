@@ -68,5 +68,13 @@ const styles ={
         display:'flex',
         flexDirection:'column',
         height:'100vh',
+        overflowY:'hidden',
+    },
+    itemsContainer:{
+        display:'flex',
+        flexDirection:'row',
+        flexWrap:'wrap',
+        margin:'1rem',
+        justifyContent:'space-evenly'
     }
 }
