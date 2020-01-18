@@ -3,4 +3,5 @@
     grid-template-columns:repeat(6,1fr);
     margin: auto;
     margin-top: 1rem;
+    position: relative;
 }
