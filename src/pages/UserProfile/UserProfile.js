@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DashHeader from '../../components/DashHeader';
 import StinkyScotty from '../../images/scott.png'
-import UserForm from './UserForm';
+// import UserForm from './UserForm';
 
 
 class UserProfile extends Component{

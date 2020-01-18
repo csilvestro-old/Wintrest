@@ -14,7 +14,7 @@ const DashHeader = props => {
                 <nav style={styles.nav}>
                     <NavLink to="/Dashboard" style={styles.links}>Home</NavLink>
                     <NavLink to="/Following" style={styles.links}>Following</NavLink>
-                    <NavLink to="/UserProfile" style={styles.links}><img style={{ borderRadius: '50%', height: '50px'}} src={props.avatar} alt='' />{props.name}</NavLink>
+                    <NavLink to="/UserProfile" style={styles.links}><img style={{ borderRadius: '50%', height: '50px'}} src={props.avatar} alt='' /></NavLink>
                     <NavLink to="/" style={Object.assign({}, styles.linkBorder, styles.linkIcons)}><AiFillMessage /></NavLink>
                     <NavLink to="/" style={styles.linkIcons}><IoIosNotifications /></NavLink>
                     <NavLink to="/Signin" style={styles.linkIcons}><IoIosMore /></NavLink>
