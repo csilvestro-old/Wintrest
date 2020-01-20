@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RegisterModal from '../components/RegisterModal'
-import BottomNav from '../components/BottomNav';
+import BottomNav from '../components/nav/BottomNav';
 
 class Register extends Component {
     render() {
