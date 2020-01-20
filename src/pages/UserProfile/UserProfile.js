@@ -6,14 +6,30 @@ import { IoMdAdd } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 import { FiShare } from "react-icons/fi";
 import NavPin from '../../components/nav/NavPin'
+import CreateBoard from '../../components/modals/CreateBoard';
+import Board from '../../components/board/Board';
+import EditModal from '../../components/modals/EditModal';
 
 class UserProfile extends Component{
     state = {
         user: {
             avatar: require('../../images/scott.png'),
-            name: 'StinkyScotty'
+            name: 'StinkyScotty',
+            boards:[{
+                title:'Stinky Scotty',
+                img:'../../images/scott.png',
+                pinTag:'345,342',
+            },{
+                title:'Stink Scotty v3',
+                img:'../../images/scott.png',
+                pinTag:'123,343,343,000',
+            },
+        ]
         },
         inputs:'',
+        show:false,
+        showEdit:false,
+
     }
     onChange = (e) => {
         this.setState({inputs: [e.target.value]})
@@ -21,12 +37,50 @@ class UserProfile extends Component{
     submitBoard = (e) => {
         console.log('Briffon is an ERROR!')
     }
+
+    createBoard=(e)=>{
+        e.preventDefault();
+
+        this.setState({
+            show:!this.state.show
+        })
+        
+    }
+
+    exit=(e)=>{
+        e.preventDefault();
+        this.setState({
+            show:!this.state.show
+        })
+    }
+
+    delete=(index)=>{
+        // e.preventDefault();
+        this.state.user.boards.splice(index,1);
+        this.setState({
+            boards:[...this.state.user.boards]
+        })
+    }
+
+    edit=()=>{
+        this.setState({
+            showEdit:!this.state.show
+        })
+    }
+
     render(){
+        const boardModal=this.state.show ? 'show':'closed';
+        const editModal=this.state.showEdit ? 'show':'closed';
+        let boards = this.state.user.boards.map((el,index)=>{
+            return <Board edit={this.edit} delete={this.delete} key={index} title={el.title} pin={el.pinTag}/>
+        })
         return(
             <div style={styles.container}>
+                <div className={`createBoardModal ${boardModal}`}><CreateBoard cancel={this.exit} exit={this.exit}/></div>
+                <div className={`createeditModal ${editModal}`}><EditModal/></div>
                 <DashHeader avatar={StinkyScotty}/>
                 <div style={styles.btns}>
-                    <IoMdAdd />
+                    <IoMdAdd onClick={this.createBoard} />
                     <MdEdit />
                     <FiShare />
                 </div>
@@ -42,6 +96,9 @@ class UserProfile extends Component{
                 <section>
                     <NavPin />
                 </section>
+                <div style={styles.boardContainer}>
+                    {boards}
+                </div>
             </div>
         )
     }
@@ -70,5 +127,10 @@ const styles ={
     },
     userAvatar: {
         
+    },
+    boardContainer:{
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'center',
     }
 }

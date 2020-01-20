@@ -1,0 +1,9 @@
+.outer{
+    border:solid;
+    padding:1em;
+    margin: 1em;
+}
+
+.outer button{
+    margin:1em;
+}

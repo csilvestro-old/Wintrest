@@ -3,7 +3,6 @@ import DashHeader from '../../components/DashHeader';
 // import Data from '../../jsons/Items.json';
 import Item from '../../components/item/Item';
 import './Dashboard.css'
-import CreateBoard from '../../components/modals/CreateBoard';
 
 class Dashboard extends Component{
     state={
@@ -44,24 +43,16 @@ class Dashboard extends Component{
             .catch(err=>console.log("Did not load ",err))
     }
 
-    exit=(e)=>{
-        e.preventDefault();
-        this.setState({
-            show:!this.state.show
-        })
-    }
 
     render(){
         // let items = Data.map((dataDetail,index)=>{
         //     return <Item title={dataDetail.title} src={dataDetail.src} alt={dataDetail.alt} desc={dataDetail.desc}/>
         // })
         const {isLoaded,items} = this.state;
-        const boardModal=this.state.show ? 'show':'closed';
         return(
             <div style={styles.container}>
                 <DashHeader />
                 <div style={styles.itemsContainer} className="itemsContainer">
-                    <div className={`createBoardModal ${boardModal}`}><CreateBoard cancel={this.exit} exit={this.exit}/></div>
                     {!isLoaded && items.length>0 ? items.map(item =>{
                         const {fname,username,picture} = item;
                         return <Item key={username} title={fname} src={picture}  />
