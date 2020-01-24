@@ -4,11 +4,8 @@ import StinkyScotty from '../../images/scott.png'
 import { IoIosAdd } from 'react-icons/io'
 import { MdEdit } from 'react-icons/md'
 import { FiShare } from 'react-icons/fi'
-import Selection from '../UserProfile/Selection'
+//import Selection from '../UserProfile/Selection'
 // import UserForm from './UserForm';
-import { IoMdAdd } from "react-icons/io";
-import { MdEdit } from "react-icons/md";
-import { FiShare } from "react-icons/fi";
 import NavPin from '../../components/nav/NavPin'
 import CreateBoard from '../../components/modals/CreateBoard';
 import Board from '../../components/board/Board';
@@ -83,7 +80,6 @@ class UserProfile extends Component{
                 <div className={`createBoardModal ${boardModal}`}><CreateBoard cancel={this.exit} exit={this.exit}/></div>
                 <div className={`createeditModal ${editModal}`}><EditModal/></div>
                 <DashHeader avatar={StinkyScotty}/>
-                <div style={styles.data}>
                     <div style={styles.buttons}>
                         <button style={styles.IconBack}><IoIosAdd style={styles.icon} /></button>
                         <button style={styles.IconBack}><MdEdit style={styles.icon} /></button>
@@ -98,8 +94,8 @@ class UserProfile extends Component{
                             <img style={{borderRadius: '50%', marginLeft: 'auto', height: '100px'}} src={StinkyScotty} alt='' />
                         </div>
                     </div>
-                </div>
                 {/* <Selection name={['One', 'Two', 'Three', 'Four']}/> */}
+                <NavPin />
             </div>
         )
     }
