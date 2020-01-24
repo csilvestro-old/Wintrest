@@ -1,33 +1,29 @@
 import React, {Component} from 'react';
-
 import Pins from '../pins/Pins';
 
-//Should use an export
 //export default class TodoList extends Component {
-class TodoList extends Component {
-//const TodoList = props => {  
+class Board extends Component {
+//const Board = props => {  
     render() {
-        const {items, clearList, deleteItem, editItem} = this.props
+        const {pins, deleteItem, editItem} = this.props
         return (
             <ul style={styles.h1}>
-                <h3>Todo List</h3>
-                {items.map(item => {
+                <h3>Board</h3>
+                {pins.map(pin => {
                     return (
-                        <TodoItem 
-                            key={item.id} 
-                            title={item.title} 
-                            deleteItem={()=> deleteItem(item.id)}
-                            editItem={()=> editItem(item.id)}
+                        <Pins 
+                            key={pin.id} 
+                            title={pin.title} 
+                            deleteItem={()=> deleteItem(pin.id)}
+                            editItem={()=> editItem(pin.id)}
                         />
                     )
                 })}
-                
-                <p><button type='button' onClick={clearList}>Clear List</button></p>
             </ul>
         )
     }
 }
-export default TodoList
+export default Board
 
 const styles= {
     header: {
