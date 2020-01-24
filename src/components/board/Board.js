@@ -1,19 +1,42 @@
-import React from 'react';
-import './Board.css';
+import React, {Component} from 'react';
 
-const Board =props=>{
-    return(
-        <div className="outer">
-            <div className="inner">
-                {props.boardCont}
-            </div>
-            <h3>{props.title}</h3>
-            <h4>{props.pins}</h4>
-            <button onClick={()=>props.delete(props.key)}>Delete</button>
-            <button onClick={props.edit}>Edit</button>
-        </div>
-    )
+import Pins from '../pins/Pins';
+
+//Should use an export
+//export default class TodoList extends Component {
+class TodoList extends Component {
+//const TodoList = props => {  
+    render() {
+        const {items, clearList, deleteItem, editItem} = this.props
+        return (
+            <ul style={styles.h1}>
+                <h3>Todo List</h3>
+                {items.map(item => {
+                    return (
+                        <TodoItem 
+                            key={item.id} 
+                            title={item.title} 
+                            deleteItem={()=> deleteItem(item.id)}
+                            editItem={()=> editItem(item.id)}
+                        />
+                    )
+                })}
+                
+                <p><button type='button' onClick={clearList}>Clear List</button></p>
+            </ul>
+        )
+    }
 }
+export default TodoList
 
-export default Board;
-
+const styles= {
+    header: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: '1%'
+    },
+    h1:{
+        fontSize: '1.25em'
+    }
+}

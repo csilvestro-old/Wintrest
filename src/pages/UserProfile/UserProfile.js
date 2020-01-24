@@ -99,7 +99,7 @@ class UserProfile extends Component{
                         </div>
                     </div>
                 </div>
-                <Selection name={['One', 'Two', 'Three', 'Four']}/>
+                {/* <Selection name={['One', 'Two', 'Three', 'Four']}/> */}
             </div>
         )
     }
