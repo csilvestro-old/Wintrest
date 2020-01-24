@@ -13,7 +13,7 @@ class Board extends Component {
                     return (
                         <Pins 
                             key={pin.id} 
-                            title={pin.title} 
+                            pinTitle={pin.pinTitle} 
                             deleteItem={()=> deleteItem(pin.id)}
                             editItem={()=> editItem(pin.id)}
                         />
@@ -26,13 +26,11 @@ class Board extends Component {
 export default Board
 
 const styles= {
-    header: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        padding: '1%'
-    },
     h1:{
-        fontSize: '1.25em'
+        fontSize: '1.25em',
+        border: 'solid green',
+        width: '20%',
+        flexDirection: 'row',
+        //background: 'red'
     }
 }

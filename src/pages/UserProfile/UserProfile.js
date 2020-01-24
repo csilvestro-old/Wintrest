@@ -27,6 +27,13 @@ class UserProfile extends Component{
             },
         ]
         },
+        pins: [{
+            pinTitle: 'Video Games',
+            img:'../../images/scott.png',
+        },{
+            pinTitle: 'Basket Weaving',
+            img:'../../images/scott.png',
+        }],
         inputs:'',
         show:false,
         showEdit:false,
@@ -72,9 +79,9 @@ class UserProfile extends Component{
     render(){
         const boardModal=this.state.show ? 'show':'closed';
         const editModal=this.state.showEdit ? 'show':'closed';
-        let boards = this.state.user.boards.map((el,index)=>{
-            return <Board edit={this.edit} delete={this.delete} key={index} title={el.title} pin={el.pinTag}/>
-        })
+        // let boards = this.state.user.boards.map((el,index)=>{
+        //     return <Board edit={this.edit} delete={this.delete} key={index} title={el.title} pin={el.pinTag}/>
+        // })
         return(
             <div style={styles.container}>
                 <div className={`createBoardModal ${boardModal}`}><CreateBoard cancel={this.exit} exit={this.exit}/></div>
@@ -96,6 +103,10 @@ class UserProfile extends Component{
                     </div>
                 {/* <Selection name={['One', 'Two', 'Three', 'Four']}/> */}
                 <NavPin />
+                <Board  
+                    pins={this.state.pins} 
+                    deleteItem={this.deleteItem}
+                    editItem={this.editItem}/>
             </div>
         )
     }

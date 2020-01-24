@@ -18,7 +18,8 @@ const styles= {
         flexDirection: 'column',
         alignItems: 'center',
         border: 'solid',
-        width: '10%',
-        padding: '1%'
+        width: '100px',
+        padding: '1%',
+        margin: '5%'
     }
 }
