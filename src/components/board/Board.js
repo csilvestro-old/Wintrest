@@ -1,19 +1,19 @@
-import React from 'react';
-import './Board.css';
+import React from "react";
+// import Pins from '../pins/Pins';
 
-const Board =props=>{
-    return(
-        <div className="outer">
-            <div className="inner">
-                {props.boardCont}
-            </div>
-            <h3>{props.title}</h3>
-            <h4>{props.pins}</h4>
-            <button onClick={()=>props.delete(props.key)}>Delete</button>
-            <button onClick={props.edit}>Edit</button>
-        </div>
-    )
-}
-
+const Board = props => {
+  return <ul style={styles.h1}>klk</ul>;
+};
 export default Board;
 
+const styles = {
+  header: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: "1%"
+  },
+  h1: {
+    fontSize: "1.25em"
+  }
+};
