@@ -16,7 +16,6 @@ const Board = props => {
                         />
                     )
                 })}
-                klk
             </ul>
         )
     }
